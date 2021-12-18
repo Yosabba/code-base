@@ -19,14 +19,14 @@ const GlobalStyles = createGlobalStyle`
   }
 }
     body{
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Sora", sans-serif;
         width: 100%;
     }
 
     h2{
         font-size: 3rem;
-        font-family: 'Abril Fatface', cursive;
-        font-weight: lighter;
+        font-family: "Sora", sans-serif;
+        font-weight: 300;
         color: #333;
     }
 
@@ -52,8 +52,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     input{
-        font-weight: bold;
-        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        font-family: "Sora", sans-serif;
     }
 `;
 

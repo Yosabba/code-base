@@ -18,6 +18,13 @@ const Game = ({ name, released, image, id }) => {
     dispatch(loadDetail(id));
   };
 
+  const formatDate = (date) => {
+    const year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    return `${month}/${day}/${year}`;
+  };
+
   return (
     <StyledGame
       variants={popup}
@@ -28,7 +35,7 @@ const Game = ({ name, released, image, id }) => {
     >
       <Link to={`/game/${id}`}>
         <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
-        <p>{released}</p>
+        <p>{formatDate(released)}</p>
         <motion.img
           layoutId={`image ${stringPathId}`}
           src={smallImage(image, 640)}

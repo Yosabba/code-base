@@ -4,6 +4,7 @@ const key = `${process.env.REACT_APP_GAMEKEY}`;
 const key_url = `key=${key}`;
 
 //Getting the date
+
 const getCurrentMonth = () => {
   const month = new Date().getMonth() + 1;
   if (month < 10) {
@@ -12,6 +13,7 @@ const getCurrentMonth = () => {
     return month;
   }
 };
+
 //Getting the date
 const getCurrentDay = () => {
   const day = new Date().getDate();
@@ -38,9 +40,11 @@ const newGames = `games?${key_url}&dates=${lastYear},${currentDate}&ordering=-re
 export const popularGamesURL = () => `${base_url}${popular_games}`;
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${newGames}`;
+
 //GAME DETAILS
 export const gameDetailsURL = (game_id) =>
   `${base_url}games/${game_id}?${key_url}`;
+
 //Game ScreenShots
 export const gameScreenshotURL = (game_id) =>
   `${base_url}games/${game_id}/screenshots?${key_url}`;

@@ -21,11 +21,12 @@ const Home = () => {
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
-  
+
   //Get that data back
   const { popular, newGames, upcoming, searched } = useSelector(
     (state) => state.games
   );
+
   return (
     <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
@@ -50,6 +51,7 @@ const Home = () => {
         ) : (
           ""
         )}
+
         <h2>Upcoming Games</h2>
         <Games>
           {upcoming.map((game) => (
@@ -62,6 +64,7 @@ const Home = () => {
             />
           ))}
         </Games>
+
         <h2>Popular Games</h2>
         <Games>
           {popular.map((game) => (
@@ -74,6 +77,7 @@ const Home = () => {
             />
           ))}
         </Games>
+
         <h2>New Games</h2>
         <Games>
           {newGames.map((game) => (
