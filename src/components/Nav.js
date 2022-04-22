@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 //Animation
-import logo from "../img/controller.svg";
+import logo from "../img/server.png";
 //Redux and Routes
 import { fetchSearch } from "../actions/gamesAction";
 import { useDispatch } from "react-redux";
 import { fadeIn } from "../animations";
+import { motion } from "framer-motion";
+
 
 const Nav = () => {
   
@@ -27,7 +29,7 @@ const Nav = () => {
   };
 
   return (
-    <header variants={fadeIn} initial="hidden" animate="show">
+    <motion.header variants={fadeIn} initial="hidden" animate="show">
       {/* Daisy Header */}
       <div className="navbar my-7 bg-base-100">
         <div className="flex-1">
@@ -35,46 +37,18 @@ const Nav = () => {
             onClick={clearSearched}
             src={logo}
             alt="logo"
-            className="w-[2rem] mr-2 cursor-pointer"
+            className="w-16 mr-2 cursor-pointer"
           />
           <h1> Game Base </h1>
-        </div>
-        <div className="flex-none gap-2">
-          <div className="form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-            />
-          </div>
-          <div className="dropdown dropdown-end">
-            <ul
-              tabIndex="0"
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
 
       {/* Search form and button */}
-      <form className="form-control">
+      <form className="form-control pb-24">
         <div className="input-group flex items-center justify-center">
           <input
             type="text"
-            placeholder="Search…"
+            placeholder="Search Games"
             className="input input-bordered w-80 focus:outline-[#88888800]"
             value={textInput}
             onChange={inputHandler}
@@ -98,7 +72,7 @@ const Nav = () => {
           </button>
         </div>
       </form>
-    </header>
+    </motion.header>
   );
 };
 

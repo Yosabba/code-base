@@ -68,7 +68,9 @@ const Home = () => {
 
         {searched.length ? (
           <div className="searched">
-            <h2>Searched Games</h2>
+            <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">
+              Searched Games
+            </h1>
             <Games className="grid">
               {searched.map((game) => (
                 <Game
