@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 //Styling and Animation
-import styled from "styled-components";
 import { motion } from "framer-motion";
 //Redux
 import { useDispatch } from "react-redux";
@@ -10,9 +9,11 @@ import { smallImage } from "../util";
 import { popup } from "../animations";
 
 const Game = ({ name, released, image, id }) => {
+  useEffect(() => {}, []);
   const stringPathId = id.toString();
   //Load Detail Handler
   const dispatch = useDispatch();
+
   const loadDetailHandler = () => {
     document.body.style.overflow = "hidden";
     dispatch(loadDetail(id));
@@ -26,42 +27,39 @@ const Game = ({ name, released, image, id }) => {
   };
 
   return (
-    <StyledGame
+    <motion.section
       variants={popup}
       initial="hidden"
       animate="show"
       layoutId={stringPathId}
-      onClick={loadDetailHandler}
     >
-      <Link to={`/game/${id}`}>
-        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
-        <p>{formatDate(released)}</p>
-        <motion.img
-          layoutId={`image ${stringPathId}`}
-          src={smallImage(image, 640)}
-          alt={name}
-        />
-      </Link>
-    </StyledGame>
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <span className="badge badge-primary items-center text-base">{`Release Date: ${formatDate(
+          released
+        )}`}</span>
+        <div className="card-body items-center text-center ">
+          <h2 className="card-title text-md">{name}</h2>
+
+          <motion.img
+            layoutId={`image ${stringPathId}`}
+            src={smallImage(image, 640)}
+            alt={name}
+            className="rounded-xl"
+          />
+
+          <div className="card-actions">
+            <Link
+              to={`/game/${id}`}
+              onClick={loadDetailHandler}
+              className="btn btn-primary px-8 my-6"
+            >
+              View
+            </Link>
+          </div>
+        </div>
+      </div>
+    </motion.section>
   );
 };
-
-const StyledGame = styled(motion.div)`
-  min-height: 30vh;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  border-radius: 1rem;
-  cursor: pointer;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 40vh;
-    object-fit: cover;
-  }
-
-  @media only screen and (max-width: 480px) {
-    font-size: 0.8rem;
-  }
-`;
 
 export default Game;

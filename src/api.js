@@ -1,6 +1,6 @@
 //Base URL
 const base_url = "https://api.rawg.io/api/";
-const key = `${process.env.REACT_APP_GAMEKEY}`;
+const key = `b5f8825deec2467995e1271b0bf7d7e7`;
 const key_url = `key=${key}`;
 
 //Getting the date
