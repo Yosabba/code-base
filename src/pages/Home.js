@@ -59,7 +59,7 @@ const Home = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="mobile:p-0"
+      className="mobile:p-0 z-10"
     >
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
@@ -79,6 +79,7 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  platforms={game.parent_platforms}
                 />
               ))}
             </Games>
@@ -104,6 +105,8 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  genres={game.genres}
+                  platforms={game.parent_platforms}
                 />
               </SwiperSlide>
             ))}
@@ -126,6 +129,8 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  genres={game.genres}
+                  platforms={game.parent_platforms}
                 />
               </SwiperSlide>
             ))}
@@ -151,6 +156,8 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  genres={game.genres}
+                  platforms={game.parent_platforms}
                 />
               </SwiperSlide>
             ))}
@@ -173,6 +180,8 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  genres={game.genres}
+                  platforms={game.parent_platforms}
                 />
               </SwiperSlide>
             ))}
@@ -196,6 +205,8 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  genres={game.genres}
+                  platforms={game.parent_platforms}
                 />
               </SwiperSlide>
             ))}
@@ -218,6 +229,8 @@ const Home = () => {
                   id={game.id}
                   image={game.background_image}
                   key={game.id}
+                  genres={game.genres}
+                  platforms={game.parent_platforms}
                 />
               </SwiperSlide>
             ))}

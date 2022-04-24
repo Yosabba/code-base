@@ -7,9 +7,7 @@ import { useDispatch } from "react-redux";
 import { fadeIn } from "../animations";
 import { motion } from "framer-motion";
 
-
 const Nav = () => {
-  
   const dispatch = useDispatch();
 
   const [textInput, setTextInput] = useState("");
@@ -30,6 +28,7 @@ const Nav = () => {
 
   return (
     <motion.header variants={fadeIn} initial="hidden" animate="show">
+      
       {/* Daisy Header */}
       <div className="navbar my-7 bg-base-100">
         <div className="flex-1">
@@ -53,7 +52,6 @@ const Nav = () => {
             value={textInput}
             onChange={inputHandler}
           />
-
           <button onClick={submitSearch} className="btn btn-square">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +73,5 @@ const Nav = () => {
     </motion.header>
   );
 };
-
 
 export default Nav;
