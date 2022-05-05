@@ -6,7 +6,6 @@ import { loadGames } from "../actions/gamesAction";
 //Components
 import Game from "../components/Game";
 //Styling and Animation
-import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { fadeIn } from "../animations";
@@ -20,7 +19,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-cards";
 
 const Home = () => {
-
   const [mobileWindowSize, setMobileWindowSize] = useState(false);
   const [desktopWindowSize, setDesktopWindowSize] = useState(false);
   //get the current location
@@ -31,7 +29,6 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-  
     dispatch(loadGames());
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -59,7 +56,7 @@ const Home = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="mobile:p-0 z-10"
+      className="mobile:p-0 mx-60 "
     >
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
@@ -71,7 +68,7 @@ const Home = () => {
             <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">
               Searched Games
             </h1>
-            <Games className="grid">
+            <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
               {searched.map((game) => (
                 <Game
                   name={game.name}
@@ -80,15 +77,14 @@ const Home = () => {
                   image={game.background_image}
                   key={game.id}
                   platforms={game.parent_platforms}
+                  genres={game.genres}
                 />
               ))}
-            </Games>
+            </section>
           </div>
         ) : null}
 
-        <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">
-          Upcoming Games
-        </h1>
+        <h1 className="text-5xl mobile:text-4xl py-8">Upcoming Games</h1>
         {mobileWindowSize ? (
           <Swiper
             slidesPerView={1}
@@ -114,54 +110,40 @@ const Home = () => {
         ) : null}
 
         {desktopWindowSize ? (
-          <Swiper
-            slidesPerView={4}
-            spaceBetween={50}
-            freeMode={true}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper mb-12 py-4 cursor-grab"
-          >
+          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
             {upcoming.map((game) => (
-              <SwiperSlide>
-                <Game
-                  name={game.name}
-                  released={game.released}
-                  id={game.id}
-                  image={game.background_image}
-                  key={game.id}
-                  genres={game.genres}
-                  platforms={game.parent_platforms}
-                />
-              </SwiperSlide>
+              <Game
+                name={game.name}
+                released={game.released}
+                id={game.id}
+                image={game.background_image}
+                key={game.id}
+                genres={game.genres}
+                platforms={game.parent_platforms}
+                rating={game.ratings_count}
+              />
             ))}
-          </Swiper>
+          </section>
         ) : null}
 
         <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">
           Popular Games
         </h1>
         {desktopWindowSize ? (
-          <Swiper
-            slidesPerView={4}
-            spaceBetween={50}
-            freeMode={true}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper mb-12 py-4 cursor-grab"
-          >
+          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
             {popular.map((game) => (
-              <SwiperSlide>
-                <Game
-                  name={game.name}
-                  released={game.released}
-                  id={game.id}
-                  image={game.background_image}
-                  key={game.id}
-                  genres={game.genres}
-                  platforms={game.parent_platforms}
-                />
-              </SwiperSlide>
+              <Game
+                name={game.name}
+                released={game.released}
+                id={game.id}
+                image={game.background_image}
+                key={game.id}
+                genres={game.genres}
+                platforms={game.parent_platforms}
+                rating={game.ratings_count}
+              />
             ))}
-          </Swiper>
+          </section>
         ) : null}
 
         {mobileWindowSize ? (
@@ -190,27 +172,20 @@ const Home = () => {
 
         <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">New Games</h1>
         {desktopWindowSize ? (
-          <Swiper
-            slidesPerView={4}
-            spaceBetween={50}
-            freeMode={true}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper mb-12 py-4 cursor-grab"
-          >
+          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
             {newGames.map((game) => (
-              <SwiperSlide>
-                <Game
-                  name={game.name}
-                  released={game.released}
-                  id={game.id}
-                  image={game.background_image}
-                  key={game.id}
-                  genres={game.genres}
-                  platforms={game.parent_platforms}
-                />
-              </SwiperSlide>
+              <Game
+                name={game.name}
+                released={game.released}
+                id={game.id}
+                image={game.background_image}
+                key={game.id}
+                genres={game.genres}
+                platforms={game.parent_platforms}
+                rating={game.ratings_count}
+              />
             ))}
-          </Swiper>
+          </section>
         ) : null}
 
         {mobileWindowSize ? (
@@ -240,22 +215,5 @@ const Home = () => {
     </motion.main>
   );
 };
-
-
-const Games = styled(motion.div)`
-  min-height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 5rem;
-
-  @media (max-width: 480px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
-  }
-`;
 
 export default Home;

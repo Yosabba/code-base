@@ -29,5 +29,11 @@ export const popup = {
       opacity: 0,
       transition: { duration: 0.75 },
     },
+    hover: {
+      scale: 2,
+      transition: {
+        duration: 3,
+      } 
+    },
   },
 };

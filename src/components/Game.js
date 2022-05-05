@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 //Styling and Animation
 import { motion } from "framer-motion";
 //Redux
@@ -14,7 +13,7 @@ import nintendo from "../img/nintendo.svg";
 import apple from "../img/apple.svg";
 import gamepad from "../img/gamepad.svg";
 
-const Game = ({ name, released, image, id, genres, platforms }) => {
+const Game = ({ name, released, image, id, genres, platforms}) => {
   const stringPathId = id.toString();
   //Load Detail Handler
   const dispatch = useDispatch();
@@ -55,38 +54,21 @@ const Game = ({ name, released, image, id, genres, platforms }) => {
       animate="show"
       layoutId={stringPathId}
     >
-      {/* <div className="card w-96 bg-base-100 shadow-xl">
-        <span className="badge badge-primary items-center text-base">{`Release Date: ${formatDate(
-          released
-        )}`}</span>
-        <div className="card-body items-center text-center ">
-          <h2 className="card-title text-md">{name}</h2>
-
-          <motion.img
-            layoutId={`image ${stringPathId}`}
-            src={smallImage(image, 640)}
-            alt={name}
-            className="rounded-xl"
-          />
-          {genres.map(element => <p className="">{element.name}</p>)}
-
-          <div className="card-actions">
-            <Link
-              to={`/game/${id}`}
-              onClick={loadDetailHandler}
-              className="btn btn-primary px-8 my-6"
-            >
-              View
-            </Link>
-          </div>
-        </div>
-      </div> */}
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <figure>
-          <img src={smallImage(image, 640)} alt="Shoes" />
-        </figure>
-        <div class="card-body">
-          <div class="badge badge-primary">{`Release Date: ${formatDate(
+      <motion.div
+        variants={popup}
+        initial="hidden"
+        animate="show"
+        whileHover={{
+          scale: 1.02,
+          transition: {
+            duration: 0.4,
+          },
+        }}
+        className="card w-96 bg-base-100 shadow-xl mx-8 "
+      >
+        <img src={smallImage(image, 640)} alt="game" />
+        <div className="card-body">
+          <div className="badge badge-primary">{`Release Date: ${formatDate(
             released
           )}`}</div>
           <h2 className="card-title text-2xl">{name}</h2>
@@ -97,7 +79,7 @@ const Game = ({ name, released, image, id, genres, platforms }) => {
           >
             View
           </Link>
-          <div class="card-actions justify-end">
+          <div className="card-actions justify-end">
             {platforms.map((data) => (
               <img
                 alt={data.platform.name}
@@ -107,7 +89,7 @@ const Game = ({ name, released, image, id, genres, platforms }) => {
               ></img>
             ))}
           </div>
-          <div class="card-actions justify-end">
+          <div className="card-actions justify-end">
             {genres.map((element) => (
               <div className="badge badge-outline cursor-pointer">
                 {element.name}
@@ -115,7 +97,7 @@ const Game = ({ name, released, image, id, genres, platforms }) => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

@@ -27,8 +27,12 @@ const Nav = () => {
   };
 
   return (
-    <motion.header variants={fadeIn} initial="hidden" animate="show">
-      
+    <motion.header
+      variants={fadeIn}
+      initial="hidden"
+      animate="show"
+      className="ml-56 mobile:ml-0"
+    >
       {/* Daisy Header */}
       <div className="navbar my-7 bg-base-100">
         <div className="flex-1">
