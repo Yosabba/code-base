@@ -64,18 +64,18 @@ const Game = ({ name, released, image, id, genres, platforms}) => {
             duration: 0.4,
           },
         }}
-        className="card w-96 bg-base-100 shadow-xl mx-8 "
+        className="card w-80 bg-base-100 shadow-xl mx-8"
       >
         <img src={smallImage(image, 640)} alt="game" />
         <div className="card-body">
-          <div className="badge badge-primary">{`Release Date: ${formatDate(
+          <div className="badge bg-[#F15946] border-[#F15946] ">{`Release Date: ${formatDate(
             released
           )}`}</div>
           <h2 className="card-title text-2xl">{name}</h2>
           <Link
             to={`/game/${id}`}
             onClick={loadDetailHandler}
-            className="btn btn-primary my-6"
+            className="btn bg-[#0C090D] border-[#0C090D] my-6"
           >
             View
           </Link>

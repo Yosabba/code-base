@@ -56,7 +56,7 @@ const Home = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="mobile:p-0 mx-60 "
+      className="laptop:ml-72 mobile:p-0 "
     >
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
@@ -84,14 +84,16 @@ const Home = () => {
           </div>
         ) : null}
 
-        <h1 className="text-5xl mobile:text-4xl py-8">Upcoming Games</h1>
+        <h1 className="text-5xl ml-2 mobile:text-3xl py-8">
+          Upcoming Games
+        </h1>
         {mobileWindowSize ? (
           <Swiper
             slidesPerView={1}
-            spaceBetween={30}
+            spaceBetween={5}
             freeMode={true}
             modules={[FreeMode, Pagination]}
-            className="mySwiper w-96"
+            className="mySwiper py-8 w-96"
           >
             {upcoming.map((game) => (
               <SwiperSlide>
@@ -172,7 +174,7 @@ const Home = () => {
 
         <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">New Games</h1>
         {desktopWindowSize ? (
-          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
+          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem] pb-12">
             {newGames.map((game) => (
               <Game
                 name={game.name}
@@ -194,7 +196,7 @@ const Home = () => {
             spaceBetween={30}
             freeMode={true}
             modules={[FreeMode, Pagination]}
-            className="mySwiper w-96"
+            className="mySwiper w-96 w"
           >
             {newGames.map((game) => (
               <SwiperSlide>
