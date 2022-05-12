@@ -53,6 +53,7 @@ const Game = ({ name, released, image, id, genres, platforms}) => {
       initial="hidden"
       animate="show"
       layoutId={stringPathId}
+      
     >
       <motion.div
         variants={popup}
