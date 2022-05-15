@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import GameDetail from "../components/GameDetail";
+import GameDetail from "../../components/GameDetail";
 //Redux
-import { useDispatch, useSelector } from "react-redux";
-import { loadGames } from "../actions/gamesAction";
+import { useSelector } from "react-redux";
 //Components
-import Game from "../components/Game";
+import Game from "../../components/Game";
 //Styling and Animation
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import { fadeIn } from "../animations";
+import { fadeIn } from "../../animations";
 
 import { FreeMode, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,16 +20,15 @@ import "swiper/css/effect-cards";
 const Home = () => {
   const [mobileWindowSize, setMobileWindowSize] = useState(false);
   const [desktopWindowSize, setDesktopWindowSize] = useState(false);
+  const allPcGames = [];
 
   //get the current location
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
 
   //FETCH GAMES
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadGames());
     handleResize();
     window.addEventListener("resize", handleResize);
 
@@ -42,6 +40,7 @@ const Home = () => {
     (state) => state.games
   );
 
+
   const handleResize = () => {
     if (window.innerWidth > 480) {
       setMobileWindowSize(false);
@@ -51,6 +50,20 @@ const Home = () => {
       setMobileWindowSize(true);
     }
   };
+
+    const getAllGamePlatforms = (game) => {
+      for (let i = 0; i < game.length; i++) {
+        for (let j = 0; j < game[i].parent_platforms.length; j++) {
+          if (game[i].parent_platforms[j].platform.slug === "pc") {
+            allPcGames.push(game[i]);
+          }
+        }
+      }
+    };
+
+    getAllGamePlatforms(popular);
+    getAllGamePlatforms(newGames);
+    getAllGamePlatforms(upcoming);
 
   return (
     <motion.main
@@ -85,7 +98,7 @@ const Home = () => {
           </div>
         ) : null}
 
-        <h1 className="text-5xl ml-2 mobile:text-3xl py-8">Upcoming Games</h1>
+        <h1 className="text-5xl ml-2 mobile:text-3xl py-8">PC Games</h1>
         {mobileWindowSize ? (
           <Swiper
             slidesPerView={1}
@@ -94,7 +107,7 @@ const Home = () => {
             modules={[FreeMode, Pagination]}
             className="mySwiper py-8 w-96"
           >
-            {upcoming.map((game) => (
+            {allPcGames.map((game) => (
               <SwiperSlide>
                 <Game
                   name={game.name}
@@ -112,7 +125,7 @@ const Home = () => {
 
         {desktopWindowSize ? (
           <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
-            {upcoming.map((game) => (
+            {allPcGames.map((game) => (
               <Game
                 name={game.name}
                 released={game.released}
@@ -127,91 +140,9 @@ const Home = () => {
           </section>
         ) : null}
 
-        <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">
-          Popular Games
-        </h1>
-        {desktopWindowSize ? (
-          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
-            {popular.map((game) => (
-              <Game
-                name={game.name}
-                released={game.released}
-                id={game.id}
-                image={game.background_image}
-                key={game.id}
-                genres={game.genres}
-                platforms={game.parent_platforms}
-                rating={game.ratings_count}
-              />
-            ))}
-          </section>
-        ) : null}
+        
 
-        {mobileWindowSize ? (
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            freeMode={true}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper w-96"
-          >
-            {popular.map((game) => (
-              <SwiperSlide>
-                <Game
-                  name={game.name}
-                  released={game.released}
-                  id={game.id}
-                  image={game.background_image}
-                  key={game.id}
-                  genres={game.genres}
-                  platforms={game.parent_platforms}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : null}
-
-        <h1 className="text-5xl mobile:text-4xl ml-[1.5rem] py-8">New Games</h1>
-        {desktopWindowSize ? (
-          <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem] pb-12">
-            {newGames.map((game) => (
-              <Game
-                name={game.name}
-                released={game.released}
-                id={game.id}
-                image={game.background_image}
-                key={game.id}
-                genres={game.genres}
-                platforms={game.parent_platforms}
-                rating={game.ratings_count}
-              />
-            ))}
-          </section>
-        ) : null}
-
-        {mobileWindowSize ? (
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            freeMode={true}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper w-96 w"
-          >
-            {newGames.map((game) => (
-              <SwiperSlide>
-                <Game
-                  name={game.name}
-                  released={game.released}
-                  id={game.id}
-                  image={game.background_image}
-                  key={game.id}
-                  genres={game.genres}
-                  platforms={game.parent_platforms}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : null}
+        
       </AnimateSharedLayout>
     </motion.main>
   );

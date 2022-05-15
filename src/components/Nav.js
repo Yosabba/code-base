@@ -6,6 +6,7 @@ import { fetchSearch } from "../actions/gamesAction";
 import { useDispatch } from "react-redux";
 import { fadeIn } from "../animations";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -59,16 +60,16 @@ const Nav = () => {
             alt="logo"
             className="w-16 cursor-pointer"
           />
-          <a href="#" className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
             Game Base
-          </a>
+          </Link>
         </div>
         {/* <form className="form-control">
           <div className="input-group">
             <input
               type="text"
               placeholder="Search Games"
-              className="input input-bordered w-20 focus:outline-[#88888800]"
+              className="input input-bordered w-48 mobile:w-28 focus:outline-[#88888800]"
               value={textInput}
               onChange={inputHandler}
             />
@@ -100,34 +101,52 @@ const Nav = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <div className="menu mobile:w-72 mobile:top-18 bg-base-100 w-0 laptop:top-18 laptop:left-0 h-full fixed">
+          <div className="menu scrollbar mobile:w-72 mobile:top-18 bg-base-100 w-0 laptop:top-18 laptop:left-0 h-full fixed overflow-y-scroll">
             <ul>
-              <li className="menu-title">
-                <h1 className="text-8xl">Platforms</h1>
+              <h1 className="text-2xl ml-2 my-2 font-semibold">Platforms</h1>
+
+              <li>
+                <Link to="/pc">PC</Link>
               </li>
               <li>
-                <a>PC</a>
+                <Link to="/playstation">PlayStation</Link>
               </li>
               <li>
-                <a>PlayStation</a>
+                <Link to="/xbox">Xbox</Link>
               </li>
               <li>
-                <a>Xbox</a>
+                <Link to="/nintendo">Nintendo</Link>
               </li>
               <li>
-                <a>Nitendo Switch</a>
-              </li>
-              <li className="menu-title">
-                <span>Genres</span>
+                <Link to="/ios">iOS</Link>
               </li>
               <li>
-                <a>Action</a>
+                <Link to="/web">Web</Link>
+              </li>
+              <h1 className="text-lg ml-2 my-2 font-semibold">Genres</h1>
+              <li>
+                <Link to="/">Action</Link>
               </li>
               <li>
-                <a>RPG</a>
+                <Link to="/">RPG</Link>
               </li>
               <li>
-                <a>Strategy</a>
+                <Link to="/">Strategy</Link>
+              </li>
+              <li>
+                <Link to="/">Shooter</Link>
+              </li>
+              <li>
+                <Link to="/">Adventure</Link>
+              </li>
+              <li>
+                <Link to="/">Puzzle</Link>
+              </li>
+              <li>
+                <Link to="/">Racing</Link>
+              </li>
+              <li>
+                <Link to="/">Sports</Link>
               </li>
             </ul>
           </div>

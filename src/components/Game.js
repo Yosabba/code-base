@@ -12,8 +12,11 @@ import xbox from "../img/xbox.svg";
 import nintendo from "../img/nintendo.svg";
 import apple from "../img/apple.svg";
 import gamepad from "../img/gamepad.svg";
+import android from "../img/android.svg";
+import ios from "../img/ios.svg";
+import internet from "../img/internet.svg"
 
-const Game = ({ name, released, image, id, genres, platforms}) => {
+const Game = ({ name, released, image, id, genres, platforms }) => {
   const stringPathId = id.toString();
   //Load Detail Handler
   const dispatch = useDispatch();
@@ -25,16 +28,22 @@ const Game = ({ name, released, image, id, genres, platforms}) => {
 
   const getPlatform = (platform) => {
     switch (platform) {
-      case "PlayStation":
+      case "playstation":
         return playstation;
-      case "Xbox":
+      case "xbox":
         return xbox;
-      case "PC":
+      case "pc":
         return steam;
-      case "Nintendo":
+      case "nintendo":
         return nintendo;
-      case "Apple Macintosh":
+      case "ios":
         return apple;
+      case "mac":
+        return apple;
+      case "android":
+        return android;
+      case "web":
+        return internet;
       default:
         return gamepad;
     }
@@ -53,7 +62,6 @@ const Game = ({ name, released, image, id, genres, platforms}) => {
       initial="hidden"
       animate="show"
       layoutId={stringPathId}
-      
     >
       <motion.div
         variants={popup}
@@ -85,7 +93,7 @@ const Game = ({ name, released, image, id, genres, platforms}) => {
               <img
                 alt={data.platform.name}
                 key={data.platform.id}
-                src={getPlatform(data.platform.name)}
+                src={getPlatform(data.platform.slug)}
                 className="w-6"
               ></img>
             ))}
