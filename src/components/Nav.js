@@ -32,7 +32,7 @@ const Nav = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="ml-56 mobile:ml-0 z-10"
+      className="ml-56 mobile:ml-0 mobile:fixed desktop:relative mobile:w-full z-10"
     >
       {/* Header */}
       <div className="navbar bg-base-100 flex justify-between">
@@ -99,7 +99,7 @@ const Nav = () => {
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* <!-- Page content here --> */}
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side touch-pan-y">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <div className="menu scrollbar mobile:w-72 mobile:top-18 bg-base-100 w-0 laptop:top-18 laptop:left-0 h-full fixed overflow-y-scroll">
             <ul>

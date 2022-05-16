@@ -92,7 +92,7 @@ const Home = () => {
             spaceBetween={5}
             freeMode={true}
             modules={[FreeMode, Pagination]}
-            className="mySwiper py-8 w-96"
+            className="mySwiper py-8 w-screen"
           >
             {upcoming.map((game) => (
               <SwiperSlide>
@@ -153,7 +153,7 @@ const Home = () => {
             spaceBetween={30}
             freeMode={true}
             modules={[FreeMode, Pagination]}
-            className="mySwiper w-96"
+            className="mySwiper w-screen"
           >
             {popular.map((game) => (
               <SwiperSlide>
@@ -195,7 +195,7 @@ const Home = () => {
             spaceBetween={30}
             freeMode={true}
             modules={[FreeMode, Pagination]}
-            className="mySwiper w-96 w"
+            className="mySwiper w-screen"
           >
             {newGames.map((game) => (
               <SwiperSlide>
