@@ -7,7 +7,17 @@ import Xbox from "./pages/platforms/Xbox";
 import Nintendo from "./pages/platforms/Nintendo";
 import Ios from "./pages/platforms/Ios";
 import Web from "./pages/platforms/Web";
-import Action from "./pages/genres/Action"
+//Genres
+import Action from "./pages/genres/Action";
+import Adventure from "./pages/genres/Adventure";
+import Puzzle from "./pages/genres/Puzzle";
+import Sports from "./pages/genres/Sports";
+import Strategy from "./pages/genres/Strategy";
+import Rpg from "./pages/genres/Rpg";
+import Shooter from "./pages/genres/Shooter";
+import Simulation from "./pages/genres/Simulation";
+import Indie from "./pages/genres/Indie";
+import Platformer from "./pages/genres/Platformer";
 //Router
 import { Route, Redirect } from "react-router-dom";
 
@@ -39,6 +49,33 @@ function App() {
       </Route>
       <Route path="/action" exact>
         <Action />
+      </Route>
+      <Route path="/adventure" exact>
+        <Adventure />
+      </Route>
+      <Route path="/puzzle" exact>
+        <Puzzle />
+      </Route>
+      <Route path="/role-playing-games-rpg" exact>
+        <Rpg />
+      </Route>
+      <Route path="/sports" exact>
+        <Sports />
+      </Route>
+      <Route path="/strategy" exact>
+        <Strategy />
+      </Route>
+      <Route path="/shooter" exact>
+        <Shooter />
+      </Route>
+      <Route path="/indie" exact>
+        <Indie />
+      </Route>
+      <Route path="/simulation" exact>
+        <Simulation />
+      </Route>
+      <Route path="/platformer" exact>
+        <Platformer />
       </Route>
       <Redirect to="/" />
     </div>
