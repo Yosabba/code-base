@@ -153,7 +153,7 @@ const Nav = () => {
               </li>
               <h3 className="text-2xl ml-2 my-2 font-semibold">Genres</h3>
               <li>
-                <Link to="/">Action</Link>
+                <Link to="/action">Action</Link>
               </li>
               <li>
                 <Link to="/">RPG</Link>
