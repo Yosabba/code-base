@@ -85,7 +85,7 @@ const Home = () => {
           </div>
         ) : null}
 
-        <h1 className="text-5xl ml-2 mobile:text-3xl py-8">Upcoming Games</h1>
+        <h1 className="text-5xl ml-2 mobile:text-4xl py-8">Upcoming Games</h1>
         {mobileWindowSize ? (
           <Swiper
             slidesPerView={1}
