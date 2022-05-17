@@ -20,7 +20,7 @@ import "swiper/css/effect-cards";
 const Home = () => {
   const [mobileWindowSize, setMobileWindowSize] = useState(false);
   const [desktopWindowSize, setDesktopWindowSize] = useState(false);
-  const allPcGames = [];
+  const allActionGames = [];
 
   //get the current location
   const location = useLocation();
@@ -55,7 +55,7 @@ const Home = () => {
       for (let i = 0; i < game.length; i++) {
         for (let j = 0; j < game[i].genres.length; j++) {
           if (game[i].genres[j].slug === "action") {
-            allPcGames.push(game[i]);
+            allActionGames.push(game[i]);
           }
         }
       }
@@ -107,7 +107,7 @@ const Home = () => {
             modules={[FreeMode, Pagination]}
             className="mySwiper py-8 w-96"
           >
-            {allPcGames.map((game) => (
+            {allActionGames.map((game) => (
               <SwiperSlide>
                 <Game
                   name={game.name}
@@ -125,7 +125,7 @@ const Home = () => {
 
         {desktopWindowSize ? (
           <section className="grid grid-cols-auto-fit gap-x-[3rem] gap-y-[2rem]">
-            {allPcGames.map((game) => (
+            {allActionGames.map((game) => (
               <Game
                 name={game.name}
                 released={game.released}
