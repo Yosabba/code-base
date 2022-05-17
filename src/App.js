@@ -11,6 +11,7 @@ import Web from "./pages/platforms/Web";
 import { Route, Redirect } from "react-router-dom";
 
 function App() {
+  
   return (
     <div className="App">
       <Nav />
