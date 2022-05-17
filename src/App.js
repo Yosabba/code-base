@@ -7,6 +7,7 @@ import Xbox from "./pages/platforms/Xbox";
 import Nintendo from "./pages/platforms/Nintendo";
 import Ios from "./pages/platforms/Ios";
 import Web from "./pages/platforms/Web";
+import Action from "./pages/genres/Action"
 //Router
 import { Route, Redirect } from "react-router-dom";
 
@@ -35,6 +36,9 @@ function App() {
       </Route>
       <Route path="/web" exact>
         <Web />
+      </Route>
+      <Route path="/action" exact>
+        <Action />
       </Route>
       <Redirect to="/" />
     </div>
