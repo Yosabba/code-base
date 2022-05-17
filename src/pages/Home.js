@@ -57,7 +57,7 @@ const Home = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="laptop:ml-72 mobile:p-0 "
+      className="laptop:ml-72 mobile:p-0 mobile:pt-32 laptop:pt-0 "
     >
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
