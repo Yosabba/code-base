@@ -51,7 +51,7 @@ const Nav = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="ml-56 mobile:ml-0 mobile:fixed laptop:relative mobile:w-full z-10 pb-16"
+      className="ml-56 mobile:ml-0 mobile:fixed laptop:relative mobile:w-full z-10 pb-20"
     >
       {/* Header */}
       <div className="navbar bg-base-100 flex justify-between">
@@ -129,7 +129,7 @@ const Nav = () => {
         </div>
         <div className="drawer-side touch-pan-y">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <div className="menu scrollbar mobile:w-72 mobile:top-18 bg-base-100 w-0 laptop:top-18 laptop:left-0 h-full fixed overflow-y-scroll">
+          <div className="menu scrollbar mobile:w-72 mobile:top-18 bg-base-100 w-0 laptop:top-1 laptop:left-0 h-full fixed overflow-y-scroll">
             <ul>
               <h3 className="text-2xl ml-2 my-2 font-semibold">Platforms</h3>
 
@@ -156,25 +156,31 @@ const Nav = () => {
                 <Link to="/action">Action</Link>
               </li>
               <li>
-                <Link to="/">RPG</Link>
+                <Link to="/role-playing-games-rpg">RPG</Link>
               </li>
               <li>
-                <Link to="/">Strategy</Link>
+                <Link to="/strategy">Strategy</Link>
               </li>
               <li>
-                <Link to="/">Shooter</Link>
+                <Link to="/shooter">Shooter</Link>
               </li>
               <li>
-                <Link to="/">Adventure</Link>
+                <Link to="/adventure">Adventure</Link>
               </li>
               <li>
-                <Link to="/">Puzzle</Link>
+                <Link to="/puzzle">Puzzle</Link>
               </li>
               <li>
-                <Link to="/">Racing</Link>
+                <Link to="/sports">Sports</Link>
               </li>
               <li>
-                <Link to="/">Sports</Link>
+                <Link to="/indie">Indie</Link>
+              </li>
+              <li>
+                <Link to="/platformer">Platformer</Link>
+              </li>
+              <li>
+                <Link to="/simulation">Simulation</Link>
               </li>
             </ul>
           </div>
