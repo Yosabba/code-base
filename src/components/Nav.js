@@ -51,7 +51,7 @@ const Nav = () => {
       variants={fadeIn}
       initial="hidden"
       animate="show"
-      className="ml-56 mobile:ml-0 mobile:fixed desktop:relative mobile:w-full z-10 pb-16"
+      className="ml-56 mobile:ml-0 mobile:fixed laptop:relative mobile:w-full z-10 pb-16"
     >
       {/* Header */}
       <div className="navbar bg-base-100 flex justify-between">
@@ -89,47 +89,18 @@ const Nav = () => {
             )}
           </Link>
         </div>
-        {/* {mobileWindowSize ? null : (
-          <form className="form-control">
-            <div className="input-group">
-              <input
-                type="text"
-                placeholder="Search Games"
-                className="input input-bordered w-48 focus:outline-[#88888800]"
-                value={textInput}
-                onChange={inputHandler}
-              />
-              <button onClick={submitSearch} className="btn btn-square">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </form>
-        )} */}
         <form className="form-control">
           <div className="input-group">
             <input
               type="text"
               placeholder="Search Games"
-              className="input input-bordered rounded-2xl desktop:w-48 desktop:text-lg mobile:input-md mobile:w-32 focus:outline-[#88888800] mobile:text-xs"
+              className="input input-bordered rounded-2xl laptop:w-48 laptop:text-lg mobile:input-md mobile:w-32 focus:outline-[#88888800] mobile:text-xs"
               value={textInput}
               onChange={inputHandler}
             />
             <button
               onClick={submitSearch}
-              className="btn desktop:btn-square mobile:btn-circle mobile:w-8"
+              className="btn laptop:btn-square mobile:btn-circle mobile:w-8"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
