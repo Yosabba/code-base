@@ -100,9 +100,9 @@ const Game = ({ name, released, image, id, genres, platforms }) => {
           </div>
           <div className="card-actions justify-end">
             {genres.map((element) => (
-              <div className="badge badge-outline cursor-pointer">
+              <Link to={`/${element.slug}`} className="badge badge-outline cursor-pointer">
                 {element.name}
-              </div>
+              </Link>
             ))}
           </div>
         </div>
