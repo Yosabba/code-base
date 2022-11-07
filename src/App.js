@@ -18,7 +18,6 @@ import Shooter from "./pages/genres/Shooter";
 import Simulation from "./pages/genres/Simulation";
 import Indie from "./pages/genres/Indie";
 import Platformer from "./pages/genres/Platformer";
-//Router
 import { Route, Redirect } from "react-router-dom";
 
 function App() {
